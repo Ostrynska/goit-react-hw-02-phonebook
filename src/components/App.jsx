@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notiflix from 'notiflix';
 import { nanoid } from 'nanoid';
+import { Box } from './Box';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
@@ -57,17 +58,39 @@ export class App extends Component {
     );
     return (
       <>
-        <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.formSubmitHandler} />
-        <h2>Contacts</h2>
-        <Filter
-          filter={this.state.filter}
-          commitInputFilter={this.commitInputFilter}
-        />
-        <ContactList
-          contacts={filterContacts}
-          handleDelete={this.handleDelete}
-        />
+        <Box fontSize={16} pt="80px" as="section">
+          <h1
+            style={{
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              fontSize: '32px',
+              color: '#1C4931',
+            }}
+          >
+            Phonebook
+          </h1>
+          <ContactForm onSubmit={this.formSubmitHandler} />
+        </Box>
+        <Box fontSize={16} pt="40px" as="section">
+          <h2
+            style={{
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              fontSize: '32px',
+              color: '#1C4931',
+            }}
+          >
+            Contacts
+          </h2>
+          <Filter
+            filter={this.state.filter}
+            commitInputFilter={this.commitInputFilter}
+          />
+          <ContactList
+            contacts={filterContacts}
+            handleDelete={this.handleDelete}
+          />
+        </Box>
       </>
     );
   }
