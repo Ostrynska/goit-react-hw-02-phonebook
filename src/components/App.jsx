@@ -58,12 +58,12 @@ export class App extends Component {
     );
     return (
       <>
-        <Box fontSize={16} pt="80px" as="section">
+        <Box fontSize={16} pt="60px" as="section">
           <h1
             style={{
               textAlign: 'center',
               textTransform: 'uppercase',
-              fontSize: '32px',
+              fontSize: '28px',
               color: '#1C4931',
             }}
           >
@@ -71,12 +71,12 @@ export class App extends Component {
           </h1>
           <ContactForm onSubmit={this.formSubmitHandler} />
         </Box>
-        <Box fontSize={16} pt="40px" as="section">
+        <Box fontSize={16} pt="30px" as="section">
           <h2
             style={{
               textAlign: 'center',
               textTransform: 'uppercase',
-              fontSize: '32px',
+              fontSize: '28px',
               color: '#1C4931',
             }}
           >

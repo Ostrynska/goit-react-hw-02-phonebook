@@ -1,16 +1,29 @@
 // import PropTypes from 'prop-types';
+import {
+  ContactsList,
+  ContactsListItem,
+  ContactsListInf,
+  ContactsListButton,
+} from './ContactList.styled';
+import { IoTrashBinOutline } from 'react-icons/io5';
+import { MdOutlinePermContactCalendar } from 'react-icons/md';
 
 const ContactList = ({ contacts, handleDelete }) => {
   return (
     <>
-      <ul>
+      <ContactsList>
         {contacts.map(contact => (
-          <li key={contact.id}>
-            {contact.name}: {contact.number}
-            <button onClick={() => handleDelete(contact.id)}>Delete</button>
-          </li>
+          <ContactsListItem key={contact.id}>
+            <MdOutlinePermContactCalendar />
+            <ContactsListInf>
+              {contact.name}: {contact.number}
+            </ContactsListInf>
+            <ContactsListButton onClick={() => handleDelete(contact.id)}>
+              <IoTrashBinOutline />
+            </ContactsListButton>
+          </ContactsListItem>
         ))}
-      </ul>
+      </ContactsList>
     </>
   );
 };
