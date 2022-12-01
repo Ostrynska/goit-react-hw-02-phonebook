@@ -17,10 +17,10 @@ export class App extends Component {
     filter: '',
   };
 
-  addNewContact = data => {
+  addContact = data => {
     const { name, number } = data;
     const newContact = {
-      id: nanoid(),
+      id: nanoid(4),
       name,
       number,
     };
@@ -38,23 +38,22 @@ export class App extends Component {
   };
 
   formSubmitHandler = data => {
-    this.addNewContact(data);
+    this.addContact(data);
   };
 
-  commitInputFilter = e => {
+  handlerFilter = e => {
     this.setState({ filter: e.target.value });
   };
 
-  handleDelete = id => {
+  handlerDelete = id => {
     this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
   };
 
   render() {
-    const normalizeFilter = this.state.filter.toLowerCase();
     const filterContacts = this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizeFilter)
+      contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
     );
     return (
       <>
@@ -84,11 +83,11 @@ export class App extends Component {
           </h2>
           <Filter
             filter={this.state.filter}
-            commitInputFilter={this.commitInputFilter}
+            handlerFilter={this.handlerFilter}
           />
           <ContactList
             contacts={filterContacts}
-            handleDelete={this.handleDelete}
+            handleDelete={this.handlerDelete}
           />
         </Box>
       </>

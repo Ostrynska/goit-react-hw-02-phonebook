@@ -11,6 +11,7 @@ export const FilterWrap = styled.div`
 `;
 
 export const FilterLabel = styled.label`
+  margin-top: 10px;
   font-weight: 700;
 `;
 export const FilterInput = styled.input`

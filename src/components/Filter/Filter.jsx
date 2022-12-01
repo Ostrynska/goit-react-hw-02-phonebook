@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FilterWrap, FilterLabel, FilterInput } from './Filter.styled';
 
-const Filter = ({ filter, commitInputFilter }) => {
+const Filter = ({ filter, handlerFilter }) => {
   return (
     <FilterWrap>
       <FilterLabel>
@@ -10,7 +10,7 @@ const Filter = ({ filter, commitInputFilter }) => {
           value={filter}
           type="text"
           name="filter"
-          onChange={commitInputFilter}
+          onChange={handlerFilter}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
@@ -18,6 +18,11 @@ const Filter = ({ filter, commitInputFilter }) => {
       </FilterLabel>
     </FilterWrap>
   );
+};
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  handlerFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;
