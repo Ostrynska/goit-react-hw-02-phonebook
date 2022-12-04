@@ -87,7 +87,7 @@ export class App extends Component {
           />
           <ContactList
             contacts={filterContacts}
-            handleDelete={this.handlerDelete}
+            handlerDelete={this.handlerDelete}
           />
         </Box>
       </>
